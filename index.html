@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Journey From MVC to Modern Frontend Frameworks</title>
+    <link rel="stylesheet" href="blogstyles.css">
+    <link rel="stylesheet" href="css/pico.blue.min.css" />
+</head>
+<body>
+    <header>
+        <h1>My Journey From MVC to Modern Frontend Frameworks</h1>
+    </header>
+    <section class="TOC">
+        <ul></ul>
+            <li><a href="#what-is-mvc">What is MVC?</a></li>
+            <li><a href="#problems-with-mvc">Problems with MVC</a></li>
+            <li><a href="#git">Git</a></li>
+            <li><a href="#ServiceWorker">ServiceWorker</a></li>
+            <li><a href="#indexDB">IndexDB</a></li>
+            <li><a href="#Lighthouse">Lighthouse</a></li>  
+            <li><a href="#exploring-frameworks">Exploring Frameworks </a>
+            <li><a href="#comparing-frameworks">Comparing Frameworks</a></li>
+            <li><a href="#conclusion">Conclusion</a></li>           
+        </ul>
+    </section>
+    <main>
+        <section id="motivation">
+            <h2>Motivation</h2>
+            <p>My journey into web development began with a simple curiosity about how websites and web applications work. I wanted to create interactive, user-friendly experiences and understand the technology of the websites. Learning web development allows me to bring my ideas to life, solve real-world problems, and collaborate with a community of developers. This blog documents my journey from understanding the basics of the MVC framework to exploring modern frontend frameworks that make building dynamic web applications more efficient.</p>
+        </section>
+        <section id="what-is-mvc">
+            <h2>What is MVC?</h2>
+            <p>The Model-View-Controller (MVC) framework is an architectural pattern that separates an application into three main logical components Model, View, and Controller.</p>
+            <ul class="timeline">
+                <li>
+                    <a>The MVC framework includes the following 3 components:</a><br/><br/>
+                    <h4>Model:</h4>The Model represents the application's data and the business logic. It is responsible for directly managing the data, logic, and rules of the application.<br/><br>
+                    <h4>View</h4>:  The View is responsible for rendering the user interface and presenting data to the user. It displays the data from the Model to the user and sends user commands to the Controller.<br/><br>
+                    <h4>Controller</h4>:   The Controller listens to the user inputs from the View, processes them and returns the results to the View.<br/><br>
+                    <img src="./assets/mvc.png" alt="MVC" style="width:min-content;height:min-content;">
+            </li><br>
+            <li>
+                <h3>MVC Demo</h3>
+                <p><a href="https://github.com/Nandithar2/MVC_tictactoe" >TicTacToe-MVC-github</a></p>
+                <p><a href="https://nandithar2.github.io/MVC_tictactoe/" >TicTacToe</a> click! </p>
+                
+        </li>
+            </ul>   
+        </section><br>
+        
+        <section id="problems-with-mvc">
+            <h2>Problems with MVC</h2>
+            <ul>
+                <li>In MVC, we often have to manually update the DOM (Document Object Model) to reflect changes in the application state. This can lead to complex code, especially as the application grows in complexity.
+                </li><br>
+                <li> In MVC separation, the Model, View, and Controller can become tightly coupled. The changes in one component can unintentionally affect the others, making the code harder to maintain and extend.</li><br>
+                <li>Views and Controllers often contain logic that is specific to a particular part of the application, making it hard to reuse code across different parts of the application.</li><br>
+                <li>The tight coupling and complexity of interactions between different components can make it harder to isolate and test individual units of the application.</li><br>
+                <li>Managing three separate components (Model, View, Controller) and their interactions can be difficult for new developers like me.</li>
+            </ul>
+        </section><br>
+
+        <section id="git">
+            <h2>Knowing Git</h2>
+            <p>Git is a version control system widely used for tracking changes in source code during software development. It allows multiple developers to work on a project simultaneously without overwriting each other's changes, facilitates collaboration, and helps manage project history. </p>
+            <h3> Basic Git Commands </h3>
+            <h4>Initialization and Configuration:</h4>
+            <li>git init: Initializes a new Git repository in the current directory.</li>
+            <li>git config --global user.name "Your Name": Sets your Git username.</li>
+            <li>git config --global user.email "you@example.com": Sets your Git email.</li><br>
+            <h4>Cloning a Repository:</h4>
+            <li>git clone <repository-url>: Creates a local copy of a remote repository.</li><br>
+            <h4>Staging and Committing Changes:</h4>
+            <li>git status: Displays the status of your working directory and staging area.</li>
+            <li>git add <file>: Stages a specific file.            </li>
+            <li>git add .: Stages all changes in the current directory.            </li>
+            <li>git commit -m "Commit message": Commits staged changes with a descriptive message.</li><br>
+            <h4>Branching and Merging:            </h4>
+            <li>git branch: Lists all branches in your repository</li>
+            <li>git branch <branch-name>: Creates a new branch.            </li>
+            <li>git checkout <branch-name>: Switches to the specified branch.            </li>
+            <li>git merge <branch-name>: Merges the specified branch into the current branch.</li><br>
+            <h4>Viewing History and Differences:            </h4>
+            <li>git log: Shows the commit history.            </li>
+            <li>git diff: Shows changes between the working directory and the staging area.
+            </li><br>
+            <h4>Push Commands</h4>
+            <li>git remote add origin <repository-url>: Adds a remote repository and names it "origin".         </li>
+            <li>git push origin <branch-name>: Pushes the specified branch to the remote repository named "origin".</li>
+            <li>git push -u origin <branch-name>: Pushes the specified branch and sets it up to track the remote branch, simplifying future pushes.</li><br>
+            
+                <p> For Git documentation, visit <a href="https://git-scm.com/doc" target="_blank">Git!!</a></p>
+
+        </section>
+
+        <section id="ServiceWorker">
+            <h2>ServiceWorker</h2>
+            <p>Service Worker is a feature, enabling developers to create more reliable web applications. They act as a proxy between the web application and the network, allowing for greater control over how network requests are handled. This includes capabilities such as caching assets for offline use, intercepting network requests, and providing seamless user experiences even when the network is unreliable.
+
+                Service workers run in the background, separate from the main browser thread, and do not have direct access to the DOM. They are event-driven and typically used for features like push notifications and background data synchronization.</p>
+                <p> Basic Service Worker Syntax</p>
+                <!-- <h4>The service worker must be registered in the main JavaScript file.</h4> -->
+                <div class="code-container" id="codeContainer">
+                    <pre>
+                        <code>// Service Worker registration
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/service-worker.js')
+            .then(registration => {
+                console.log('Service Worker registered:', registration);
+            })
+            .catch(error => {
+                console.error('Service Worker registration failed:', error);
+            });
+    });
+}
+                        </code>
+                    </pre>
+                    <button class="copy-button" onclick="copyCode()">Copy Code</button>
+                </div> <br>
+                <div class="code-container" id="codeContainer">
+                    <pre>
+                        <code>// Service Worker script (sw.js)
+self.addEventListener('install', event => {
+    console.log('Service Worker installed');
+});
+
+self.addEventListener('activate', event => {
+    console.log('Service Worker activated');
+});
+
+self.addEventListener('fetch', event => {
+    console.log('Fetching:', event.request.url);
+});
+                        </code>
+                    </pre>
+                    <button class="copy-button" onclick="copyCode()">Copy Code</button>
+                </div> <br>
+                <div class="code-container" id="codeContainer">
+                    <pre>
+                        <code>// Install Event
+self.addEventListener('install', event => {
+    console.log('Service Worker installed');
+    event.waitUntil(
+        caches.open(CACHE_NAME)
+            .then(cache => {
+                console.log('Cache opened');
+                return cache.addAll([
+                    '/',
+                    '/index.html',
+                    '/styles.css',
+                    '/script.js',
+                    '/images/logo.png'
+                    // Add other static resources to cache as needed
+                ]);
+            })
+    );
+});
+                        </code>
+                    </pre>
+                    <button class="copy-button" onclick="copyCode()">Copy Code</button>
+                </div> <br>
+                <div class="code-container" id="codeContainer">
+                    <pre>
+                        <code>// Activate Event
+self.addEventListener('activate', event => {
+    console.log('Service Worker activated');
+    event.waitUntil(
+        caches.keys().then(cacheNames => {
+            return Promise.all(
+                cacheNames.map(cache => {
+                    if (cache !== CACHE_NAME) {
+                        console.log('Deleting old cache:', cache);
+                        return caches.delete(cache);
+                    }
+                })
+            );
+        })
+    );
+});
+                        </code>
+                    </pre>
+                    <button class="copy-button" onclick="copyCode()">Copy Code</button>
+                </div> <br>
+                <div class="code-container" id="codeContainer">
+                    <pre>
+                        <code>// Fetch Event: Intercept network requests and serve cached resources
+self.addEventListener('fetch', event => {
+    console.log('Fetching:', event.request.url);
+    event.respondWith(
+        caches.match(event.request)
+            .then(response => {
+                if (response) {
+                    console.log('Found in cache:', event.request.url);
+                    return response;
+                }
+                console.log('Fetching from network:', event.request.url);
+                return fetch(event.request);
+            })
+            .catch(error => {
+                console.error('Error fetching:', error);
+            })
+    );
+});
+                        </code>
+                    </pre>
+                    <button class="copy-button" onclick="copyCode()">Copy Code</button>
+                </div> 
+                <!-- <img src="./assets/sw.png" style="width: 100%;height:fit-content;">
+                  <h4>The install event is used to cache necessary resources.</h4>
+                  <img src="./assets/sw1.png" style="width: 100%;height:fit-content;">
+                  <h4>The fetch event is used to intercept network requests and serve cached resources.
+                </h4>
+                <img src="./assets/sw2.png" style="width: 100%;height:fit-content;">
+                  </p>
+                  <h4>The activate event is used to clean up old caches and manage updates.
+                </h4>
+                <img src="./assets/sw3.png" style="width: 100%;height:fit-content;"> -->
+                
+
+        </section>
+
+        <section id="indexDB">
+            <h2>IndexDB</h2>
+            <p>IndexedDB is a way for you to persistently store data inside a user's browser. Because it lets you create web applications with rich query abilities regardless of network availability, your applications can work both online and offline.            </p>
+            <p> visit <a href="https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API" target="_blank">IndexedDB-Documentation</a>!!!</p>
+        </section>
+
+        <section id="Lighthouse">
+            <h2>Lighthouse</h2>
+            <p>Lighthouse is an open-source, automated tool developed by Google for improving the quality of web pages. It provides audits for performance, accessibility, progressive web apps, SEO.</p>
+            <h3>Key Audits in Lighthouse</h3>
+            <li>Performance: This audit measures how quickly a page loads and becomes interactive. Key metrics include:
+                
+                <p>First Contentful Paint (FCP): Time taken for the first piece of content to be.</p>
+                <p>Speed Index: How quickly the contents of a page are visibly populated.</p>
+                <p>Largest Contentful Paint (LCP): Time taken for the largest content element to become visible.</p>
+                <p>Time to Interactive (TTI): Time taken for the page to become fully interactive.</p>
+                <p>Total Blocking Time (TBT): Total time during which the main thread was blocked and unable to respond to user input.</p>
+                <p>Cumulative Layout Shift (CLS): Measure of visual stability and how much the page layout shifts unexpectedly.</p></li>
+
+            <li>Accessibility:
+                This audit checks the accessibility of the web page for users with disabilities</li>
+                <li>Best Practices:
+                    This audit checks for common best practices in web development, such as:
+                    
+                    HTTPS Usage,
+                    No Vulnerable Libraries,
+                    No Mixed Content</li>
+
+            <li>SEO:
+                This audit ensures the web page follows basic search engine optimization practices to be discoverable and rank well</li>
+                <li>Running Lighthouse <br>
+                    1. Open Chrome DevTools (F12 or right-click and select "Inspect"). <br>
+                    2. Navigate to the "Lighthouse". <br>
+                    3. Select the desired categories (Performance, Accessibility, etc.). <br>
+                    4. Click "Generate Report".</li>
+
+        <p>Learn more about <a href="https://developer.chrome.com/docs/lighthouse/overview" >Lighthouse</a></p>
+        </section>
+
+        <section id="exploring-frameworks">
+            <h2>Exploring Frameworks</h2>
+            <p>As the web development continues to evolve, many frontend frameworks have emerged, each offering unique features and advantages to address the limitations of traditional MVC patterns. 
+            Exploring these frameworks is essential for a developer aiming to build efficient, scalable, and maintainable web applications. </p>
+            <h3>Front-end Frameworks Ratios Over Time</h3>
+            <img src="./assets/StateOfJS.png" style="width:100%;height:fit-content;" >
+            <p>Check out the <a href="https://2023.stateofjs.com/en-US/libraries/front-end-frameworks/" target="_blank">State of JS 2023</a> for more information!!!</p>
+            <p> Below are the some of the frameworks which I worked on! </p>
+            <article>
+                <h3>Vite</h3>
+                <p>Vite is a modern build tool that provides a fast and optimized development experience.</p>
+                <!-- It consists of two major parts: -->
+                 <ul><li>A dev server that provides rich feature enhancements over native ES modules, for example extremely fast Hot Module Replacement (HMR). </li>
+                    
+                    <li>A build command that bundles your code with Rollup, pre-configured to output highly optimized static assets for production.</li></ul>
+                    
+                    <p> You can navigate to vite.new/{template} to select which framework to 
+
+                        the supported template presets are:</p>
+                        <img src="./assets/vite1.png" style="width:min-content;height:min-content;">
+                        <p>Use the following bun command: </p>
+                        <p><code>bun create vite</code></p>
+                        <!-- <a href="https://asciinema.org/a/P1FRHgQ3yrrG9FVglbPqSFJjV" target="_blank"><img src="https://asciinema.org/a/P1FRHgQ3yrrG9FVglbPqSFJjV.svg" /></a> -->
+                        <script src="https://asciinema.org/a/P1FRHgQ3yrrG9FVglbPqSFJjV.js" id="asciicast-P1FRHgQ3yrrG9FVglbPqSFJjV" async="true"></script>
+                        <p> For vite documentation, visit <a href="https://vitejs.dev/guide/" target="_blank">Vite!!</a></p>
+                <p>A demo of Simple Personal Finance Tracker Application</p>
+                <p><a href="https://github.com/Nandithar2/PersonalFinanceApp">PersonalFinanceApp-Vite-github</a></p>
+                <p><a href="https://personalfinanceapp.pages.dev/" >PersonalFinanceApp-Vite</a> click! </p>
+                <h2>Performance and Lighthouse analysis</h2>
+                <img src="./assets/vite3.png" style="width:100%;height:fit-content;">
+                <img src="./assets/vite2.png" style="width: 100%;;height:fit-content;">
+                
+
+            </article>
+            <article>
+                <h3>React</h3>
+                <p>React is a widely-used library for building user interfaces. It emphasizes a component-based architecture, where the UI is broken down into reusable components. React's virtual DOM efficiently updates the view in response to state changes, minimizing direct DOM manipulation and enhancing performance. Its declarative syntax and strong community support make it a popular choice for complex, dynamic web applications.
+                </p>
+                <p><a href="https://github.com/Nandithar2/personalFinanceApp-react" >PersonalFinanceApp-React-github</a></p>
+                <p><a href="https://personalfinanceapp-react.pages.dev/" >PersonalFinanceApp-React</button></a> click! </p>
+
+                <p> For React documentation, visit <a href="https://legacy.reactjs.org/docs/getting-started.html" target="_blank">React</a></p>
+            </article>
+            <article>
+                <h3>Vue</h3>
+                <p>Vue is a progressive framework for building user interfaces, designed to be incrementally adoptable. It offers a simple and approachable core library, along with a robust ecosystem of supporting libraries and tools. Vue's reactivity system and single-file components (combining HTML, CSS, and JavaScript) streamline development, making it an excellent choice for both small projects and large-scale applications.</p>
+                <p><a href="https://github.com/Nandithar2/personalFinanceApp-vue" >PersonalFinanceApp-Vue-github</a></p>
+                <p><a href="https://personalfinanceapp-vue.pages.dev/" >PersonalFinanceApp-Vue</button></a> click! </p>
+
+                <p> For Vue documentation, visit <a href="https://vuejs.org/guide/introduction.html" target="_blank">Vue</a></p>
+
+            </article>
+            <article>
+                <h3>Svelte</h3>
+                <p>Svelte takes a different approach compared to traditional frameworks. Instead of running in the browser, Svelte shifts much of the work to compile time, producing highly efficient JavaScript code that updates the DOM surgically. This results in faster runtime performance and smaller bundle sizes. Svelte's syntax is intuitive and easy to learn, making it an attractive option for developers seeking simplicity and performance.                </p>
+                <p><a href="https://github.com/Nandithar2/personalFinanceApp-svelte" >PersonalFinanceApp-Svelte-github</a></p>
+                <p><a href="https://personalfinanceapp-svelte.pages.dev/" >PersonalFinanceApp-Svelte</button></a> click! </p>
+
+                <p> For Svelte documentation, visit <a href="https://svelte.dev/docs/introduction" target="_blank">Svelte</a></p>
+
+            </article>
+            <article>
+                <h3>SolidJS</h3>
+                <p>SolidJS is a declarative UI library focused on fine-grained reactivity and efficient updates. It borrows ideas from both React and Svelte, offering a syntax similar to React but with the performance benefits of a compile-time framework like Svelte. SolidJS aims to provide a highly optimized development experience with minimal runtime overhead, making it ideal for building highly interactive applications.                </p>
+                <p><a href="https://github.com/Nandithar2/personalFinanceApp-solid" >PersonalFinanceApp-Solid-github</a></p>
+                <p><a href="https://personalfinanceapp-solid.pages.dev/" >PersonalFinanceApp-solid</button></a> click! </p>
+
+                <p> For SolidJS documentation, visit <a href="https://docs.solidjs.com/quick-start" target="_blank">SolidJS</a></p>
+
+            </article>
+        </section>
+        <section id="comparing-frameworks">
+            <h2>Comparing Frameworks</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th></th>
+                        <th>React</th>
+                        <th>Vue</th>
+                        <th>Svelte</th>
+                        <th>SolidJS</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Language</td>
+                        <td>JavaScript/JSX</td>
+                        <td>JavaScript</td>
+                        <td>JavaScript</td>
+                        <td>JavaScript/JSX</td>
+                    </tr>
+                    <tr>
+                        <td>Component-Based Architecture</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Reactive Programming</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Single File Components</td>
+                        <td>No</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>No</td>
+                    </tr>
+                    <tr>
+                        <td>Declarative Syntax</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                        <td>Yes</td>
+                    </tr>
+                    <tr>
+                        <td>Rendering Mechanism</td>
+                        <td>Virtual DOM</td>
+                        <td>Virtual DOM</td>
+                        <td>Compiler-based</td>
+                        <td>Fine-grained reactivity</td>
+                    </tr>
+                    <tr>
+                        <td>Build Tools</td>
+                        <td>Create React App, Next.js</td>
+                        <td>Vue CLI, Vite</td>
+                        <td>SvelteKit, Rollup</td>
+                        <td>Solid Start, Vite</td>
+                    </tr>
+                    <tr>
+                        <td>Performance</td>
+                        <td>High</td>
+                        <td>High</td>
+                        <td>Very High</td>
+                        <td>Very High</td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul>
+                <li>Component-Based Architecture:</li>
+                <p>React, Vue, Svelte, and SolidJS all use a component-based approach, allowing developers to build UIs using reusable and encapsulated components.</p>
+                <li>Reactive Programming</li>
+                <p>React, Vue, Svelte, and SolidJS support reactive programming, making it easier to manage state changes and automatically update the UI when the state changes.</p>
+                <li>Single File Components</li>
+                <p>Vue and Svelte both support single-file components, where HTML, CSS, and JavaScript/TypeScript are bundled together in a single file for better and ease of maintenance.</p>
+                <li>Declarative Syntax</li>
+                <p>React, Vue, Svelte, and SolidJS use declarative syntax to define user interfaces, making the code more readable and easier to understand.</p>
+                <li>Rendering Mechanism</li>
+                <p>React: Uses a virtual DOM to efficiently update the actual DOM in response to state changes. <br>
+                    Vue: Also uses a virtual DOM, but with a simpler reactivity system that makes it easier to understand and use. <br>
+                    Svelte: Compiles components into highly efficient imperative code that updates the DOM directly, bypassing the need for a virtual DOM. <br>
+                    SolidJS: Utilizes fine-grained reactivity to directly update the DOM without a virtual DOM, similar to Svelte but with a more React-like syntax.</p>
+                <li>Build Tools</li>    
+                <p>Vite: A build tool that provides a fast and optimized development environment for modern web frameworks. It's not a framework itself but can be used with frameworks like React, Vue, and Svelte to enhance the development experience. <br>
+                    React: Typically used with build tools like Webpack or Create React App, but can also be integrated with Vite for faster development. <br>
+                    Vue: Can be used with Vue CLI, Webpack, or Vite for a streamlined development process. <br>
+                    Svelte: Uses its own build tool, SvelteKit, but can also be integrated with Vite for optimized builds. <br>
+                    SolidJS: Can be used with various build tools, including Vite, for an efficient development setup.</p>
+                <li>Performance</li>
+                <p>Vite: <br>
+                    <img src="./assets/per.jpg" style="width:100%;height:fit-content">
+                    React: <br>
+                    <img src="./assets/per1.jpg" style="width:100%;height:fit-content">
+                   Vue: <br>
+                   <img src="./assets/per2.jpg" style="width:100%;height:fit-content">
+                   Svelte: <br>
+                   <img src="./assets/per3.jpg" style="width:100%;height:fit-content">
+                   SolidJS: <br>
+                   <img src="./assets/per4.jpg" style="width:100%;height:fit-content">
+
+                </p>   
+                <h4>Each framework has its own unique strengths and use cases, making them suitable for different types of projects. React and Vue are versatile and widely adopted, offering robust ecosystems and flexibility. Svelte and SolidJS focus on performance and simplicity, providing a more streamlined development experience with highly optimized output. Vite enhances the development process for any of these frameworks by offering fast build times and an efficient development environment.</h4>
+            </ul>
+        </section>
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>Out of all the frameworks mentioned above, i think svelte and vue frameworks are more convenient.Both Vue and Svelte offer unique advantages that make them appealing choices for modern web development.Vue’s comprehensive ecosystem, gentle learning curve, and flexible architecture make it ideal for both small projects and large-scale applications. Svelte’s performance optimizations, intuitive syntax, and compile-time reactivity offer a refreshing approach to building highly efficient web applications. </p>
+            <p>Finally, the choice of framework depends on specific project needs and developer preferences</p>
+            <li>Choosing React for a well-established ecosystem and robust community support.
+            </li>
+            <li>Opt for Vue if  its a progressive framework with great ease of integration and an approachable learning curve.
+            </li>
+            <li>Consider Svelte for cutting-edge performance and simplicity, especially if its a start of a new project from scratch.
+            </li>
+            <li> SolidJS for high performance and reactivity, its familiar with React's syntax and looking for more optimized rendering.
+            </li>
+        </section>
+
+        
+    </main>
+    <footer>
+        <p>&copy; 2024 Nanditha R. </p>
+    </footer>
+<button id="backToTopBtn" onclick="scrollToTop()">Go To Start</button>
+<script>
+    let mybutton = document.getElementById("backToTopBtn");
+    
+    window.onscroll = function() {
+      scrollFunction();
+    };
+    
+    function scrollFunction() {
+      if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
+        mybutton.style.display = "block";
+      } else {
+        mybutton.style.display = "none";
+      }
+    }
+    
+    function scrollToTop() {
+      document.body.scrollTop = 0; 
+      document.documentElement.scrollTop = 0; 
+    }
+
+    function copyCode() {
+            const codeElement = document.getElementById('codeContainer').querySelector('code');
+            const text = codeElement.innerText;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                alert('Code copied to clipboard!');
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+                alert('Failed to copy code.');
+            });
+        }
+    </script>
+    
+</body>
+</html>
