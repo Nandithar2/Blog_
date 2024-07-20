@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://cloudconvert.com/
+HostUrl=https://eu-central.storage.cloudconvert.com/tasks/51f7d257-f14c-4a5f-b00b-183ca054386b/vite.webp?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Content-Sha256=UNSIGNED-PAYLOAD&X-Amz-Credential=cloudconvert-production%2F20240720%2Ffra%2Fs3%2Faws4_request&X-Amz-Date=20240720T033146Z&X-Amz-Expires=86400&X-Amz-Signature=508137bace4c9e4985748df13053bb4b925dad83f8854db4985f546e6d6ec310&X-Amz-SignedHeaders=host&response-content-disposition=attachment%3B%20filename%3D%22vite.webp%22&response-content-type=image%2Fwebp&x-id=GetObject
