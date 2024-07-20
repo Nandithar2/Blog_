@@ -166,7 +166,7 @@ footer {
 }
 
 table {
-    width:fit-content;
+    width:100%;
     border-collapse: collapse;
 }
 th, td {
@@ -184,7 +184,7 @@ tr:hover {
 
 
 .code-container {
-    width: max-content;
+    width: min-content;
     position: relative;
     /* max-width: 600px; */
     padding: 20px;
@@ -192,7 +192,7 @@ tr:hover {
     border-radius: 8px;
     box-shadow: black;
     overflow: auto;
-}
+} 
 
 pre {
     margin: 0;

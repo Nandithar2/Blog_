@@ -102,7 +102,7 @@
                 Service workers run in the background, separate from the main browser thread, and do not have direct access to the DOM. They are event-driven and typically used for features like push notifications and background data synchronization.</p>
                 <p> Basic Service Worker Syntax</p>
                 <!-- <h4>The service worker must be registered in the main JavaScript file.</h4> -->
-                <div class="code-container" id="codeContainer">
+                <div class="code-container" id="codeContainer" style="width: 100%;height:fit-content">
                     <pre>
                         <code>// Service Worker registration
 if ('serviceWorker' in navigator) {
@@ -120,7 +120,7 @@ if ('serviceWorker' in navigator) {
                     </pre>
                     <button class="copy-button" onclick="copyCode()">Copy Code</button>
                 </div> <br>
-                <div class="code-container" id="codeContainer">
+                <div class="code-container" id="codeContainer" style="width: 100%;height:fit-content">
                     <pre>
                         <code>// Service Worker script (sw.js)
 self.addEventListener('install', event => {
@@ -138,7 +138,7 @@ self.addEventListener('fetch', event => {
                     </pre>
                     <button class="copy-button" onclick="copyCode()">Copy Code</button>
                 </div> <br>
-                <div class="code-container" id="codeContainer">
+                <div class="code-container" id="codeContainer" style="width: 100%;height:fit-content">
                     <pre>
                         <code>// Install Event
 self.addEventListener('install', event => {
@@ -162,7 +162,7 @@ self.addEventListener('install', event => {
                     </pre>
                     <button class="copy-button" onclick="copyCode()">Copy Code</button>
                 </div> <br>
-                <div class="code-container" id="codeContainer">
+                <div class="code-container" id="codeContainer" style="width: 100%;height:fit-content">
                     <pre>
                         <code>// Activate Event
 self.addEventListener('activate', event => {
@@ -184,7 +184,7 @@ self.addEventListener('activate', event => {
                     </pre>
                     <button class="copy-button" onclick="copyCode()">Copy Code</button>
                 </div> <br>
-                <div class="code-container" id="codeContainer">
+                <div class="code-container" id="codeContainer" style="width: 100%;height:fit-content">
                     <pre>
                         <code>// Fetch Event: Intercept network requests and serve cached resources
 self.addEventListener('fetch', event => {
@@ -334,7 +334,7 @@ self.addEventListener('fetch', event => {
         </section>
         <section id="comparing-frameworks">
             <h2>Comparing Frameworks</h2>
-            <table>
+            <table style="width:100%;height:fit-content">
                 <thead>
                     <tr>
                         <th></th>
